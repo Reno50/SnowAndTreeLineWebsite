@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Front Range", 
+        "long": -105.66, "lat": 40.16, 
+        "treeline": 11000, "snowline": 12000,
+        "cover_quality": 1
+    },
+    {
+        "name": "San Juans",
+        "long": -107.62, "lat": 37.85,
+        "treeline": 11500, "snowline": null,
+        "cover_quality": 0
+    },
+    {
+        "name": "High Uintas",
+        "long": -110.5, "lat": 40.73,
+        "treeline": 11000, "snowline": null,
+        "cover_quality": 0
+    },
+    {
+        "name": "Wasatch Range",
+        "long": -111.645, "lat": 40.39,
+        "treeline": 10200, "snowline": null,
+        "cover_quality": 0
+    },
+    {
+        "name": "Snake Range",
+        "long": -114.31, "lat": 38.98,
+        "treeline": 11000, "snowline": 11900,
+        "cover_quality": 1
+    },
+    {
+        "name": "Sierra Nevada",
+        "long": -118.51, "lat": 37.09,
+        "treeline": 10500, "snowline": 12500,
+        "cover_quality": 2
+    },
+    {
+        "name": "Mount Lassen",
+        "long": -121.51, "lat": 40.49,
+        "treeline": 9600, "snowline": null,
+        "cover_quality": 0
+    }
+]
