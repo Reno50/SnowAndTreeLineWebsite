@@ -79,7 +79,7 @@ function D3Map() {
         
     }));
 
-    d3.json("/custom_geo.json").then(worldData => {
+    d3.json("/SnowAndTreeLineWebsite/custom_geo.json").then(worldData => {
       mapLayer.selectAll("path")
         .data(worldData.features)
         .enter()
@@ -90,7 +90,7 @@ function D3Map() {
         .attr("stroke-width", 0.5);
     }).catch(console.error);
 
-    d3.json("/collected_data.json").then(annotations => {
+    d3.json("/SnowAndTreeLineWebsite/collected_data.json").then(annotations => {
       annotationLayer.selectAll("circle")
         .data(annotations)
         .enter()
