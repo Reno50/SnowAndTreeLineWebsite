@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Front Range", 
+        "long": -105.66, "lat": 40.16, 
+        "treeline": 11000, "snowline": 12000,
+        "cover_quality": 1
+    },
+    {
+        "name": "San Juans",
+        "long": -107.62, "lat": 37.85,
+        "treeline": 11500, "snowline": null,
+        "cover_quality": 0
+    },
+    {
+        "name": "High Uintas",
+        "long": -110.5, "lat": 40.73,
+        "treeline": 11000, "snowline": null,
+        "cover_quality": 0
+    },
+    {
+        "name": "Wasatch Range",
+        "long": -111.645, "lat": 40.39,
+        "treeline": 10200, "snowline": null,
+        "cover_quality": 0
+    },
+    {
+        "name": "Snake Range",
+        "long": -114.31, "lat": 38.98,
+        "treeline": 11000, "snowline": 11900,
+        "cover_quality": 1
+    },
+    {
+        "name": "Sierra Nevada",
+        "long": -118.51, "lat": 37.09,
+        "treeline": 10500, "snowline": 12500,
+        "cover_quality": 2
+    },
+    {
+        "name": "Mount Lassen",
+        "long": -121.51, "lat": 40.49,
+        "treeline": 9600, "snowline": null,
+        "cover_quality": 0
+    },
+    {
+        "name": "Mount Shasta",
+        "long": -122.19, "lat": 41.41,
+        "treeline": 8300, "snowline": 11600,
+        "cover_quality": 4
+    },
+    {
+        "name": "Three Sisters",
+        "long": -121.78, "lat": 44.15,
+        "treeline": 7400, "snowline": 8900,
+        "cover_quality": 4
+    },
+    {
+        "name": "Mount Hood",
+        "long": -121.71, "lat": 45.37,
+        "treeline": 6100, "snowline": 8700,
+        "cover_quality": 4
+    },
+    {
+        "name": "Mount Rainier",
+        "long": -121.76, "lat": 46.85,
+        "treeline": 6300, "snowline": 8000,
+        "cover_quality": 5
+    },
+    {
+        "name": "Olympic Mountains",
+        "long": -123.7, "lat": 47.79,
+        "treeline": 4800, "snowline": 5400,
+        "cover_quality": 4
+    },
+    {
+        "name": "Teton Range",
+        "long": -110.8, "lat": 43.74,
+        "treeline": 9800, "snowline": 11100,
+        "cover_quality": 3
+    },
+    {
+        "name": "Glacier National Park Ranges",
+        "long": -113.78, "lat": 48.83,
+        "treeline": 6500, "snowline": 7500,
+        "cover_quality": 4
+    }
+]
