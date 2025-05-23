@@ -53,7 +53,7 @@ function D3Map() {
           opacity = 0;
         }
         var titleOpacity = Math.pow(event.transform.k, 3/2) / 16;
-        if (titleOpacity < 0.125) {
+        if (titleOpacity < 0.2) {
           titleOpacity = 0;
         } else if (titleOpacity > 1) {
           titleOpacity = 1;
