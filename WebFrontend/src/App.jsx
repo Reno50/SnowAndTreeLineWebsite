@@ -2,14 +2,21 @@
 /*
   Name, long, lat should be self explanitory - just make sure lat and long are decimal
   Treeline and snowline are in feet of elevation above sea level - 
-    treeline is obvious, but snowline is just arbitrarily from around the middle of the glacier (as the foot may be melting, but the line between accumulation/ablation is likely not at the head either)
+    treeline is obvious, 
+    but snowline is somewhat arbitrary - here are the qualifications:
+      must be above the end of any large glaciers on the mountain / range
+      must roughly look like the middle of the glacier, or the line where snow begins to accumulate as opposed to melt (ablattion line)
   Cover_quality is from 0 to 5:
     0 - No glaciers exist in this range -- snowline is null
     1 - Glaciers exist only in occasional cirques, extend for 500 feet or less, are visibly spotty or inconsistent, and do not contain crevaces of notable size
     2 - Glaciers only in occasional or uncommon cirques, but may extend longer than 500 feet, appear wider, appear more consistent, and may even have some small crevaces due to topography
     3 - Glaciers exist and are not necessarily confined to a small cirque or other topographic feature, likely longer than 500 feet but possibly just very wide, but are still uncommon and have relatively small crevaces 
     4 - Glaciers exist, are somewhat common, and have visible large crevaces, extending for greater than 500 feet and generally appearing quite consistent
-    5 - Glaciers are quite common and icefields exist in this range, surpassing all other categories
+    5 - Glaciers are quite common and icefields / 'sufficiently' large glaciers exist in this range, surpassing all other categories
+  Cover quality is chosen (along with snowline elevation) based on the highest category achieved in the range, and elevation is set accordingly
+   - ex: Rainier has many glaciers below its given snowline of 7700, but that is the lowest that fryingpan glacier goes
+         it is also where I would anticipate an icefield would become impossible - that is just based on visual observation, though,
+         and I think it would be unlikely for an icefield to form on a mountain in rainiers place unless it was at least ~9000 feet ASL
 */
 
 import { useState, useEffect, useRef } from 'react'
@@ -41,27 +48,34 @@ function D3Map() {
     svg.call(d3.zoom()
       .scaleExtent([1, 16])
       .on("zoom", (event) => {
-        var opacity = (event.transform.k * event.transform.k) / 256;
-        if (opacity < 0.25) {
+        var opacity = Math.pow(event.transform.k, 3) / 4096;
+        if (opacity < 0.125) {
           opacity = 0;
+        }
+        var titleOpacity = Math.pow(event.transform.k, 3/2) / 16;
+        if (titleOpacity < 0.125) {
+          titleOpacity = 0;
+        } else if (titleOpacity > 1) {
+          titleOpacity = 1;
         }
 
         zoomLayer.attr("transform", event.transform);
-        annotationLayer.selectAll("circle").attr("r", 3 / event.transform.k) // Set the radius of annotations as 3 / zoom
+        annotationLayer.selectAll("circle").attr("r", 3 / event.transform.k); // Set the radius of annotations as 3 / zoom
 
-        annotationLayer.selectAll("text.annotation").attr("font-size", 10 / event.transform.k) // Set the font size as 8 / zoom
-        annotationLayer.selectAll("text.annotation").attr("x", d => projection([d.long, d.lat])[0] + (6 / event.transform.k))
-        annotationLayer.selectAll("text.annotation").attr("y", d => projection([d.long, d.lat])[1] - (3 / event.transform.k))
+        annotationLayer.selectAll("text.title").attr("font-size", 10 / event.transform.k); // Set the font size as 8 / zoom
+        annotationLayer.selectAll("text.title").attr("x", d => projection([d.long, d.lat])[0] + (6 / event.transform.k));
+        annotationLayer.selectAll("text.title").attr("y", d => projection([d.long, d.lat])[1] - (3 / event.transform.k));
+        annotationLayer.selectAll("text.title").attr("opacity", d => titleOpacity);
 
-        annotationLayer.selectAll("text.treeline_desc").attr("font-size", 6 / (event.transform.k))
-        annotationLayer.selectAll("text.treeline_desc").attr("x", d => projection([d.long, d.lat])[0] + (6 / event.transform.k))
-        annotationLayer.selectAll("text.treeline_desc").attr("y", d => projection([d.long, d.lat])[1] + (6 / event.transform.k))
-        annotationLayer.selectAll("text.treeline_desc").attr("opacity", d => opacity)
+        annotationLayer.selectAll("text.treeline_desc").attr("font-size", 6 / (event.transform.k));
+        annotationLayer.selectAll("text.treeline_desc").attr("x", d => projection([d.long, d.lat])[0] + (6 / event.transform.k));
+        annotationLayer.selectAll("text.treeline_desc").attr("y", d => projection([d.long, d.lat])[1] + (6 / event.transform.k));
+        annotationLayer.selectAll("text.treeline_desc").attr("opacity", d => opacity);
         
-        annotationLayer.selectAll("text.snowline_desc").attr("font-size", 6 / (event.transform.k))
-        annotationLayer.selectAll("text.snowline_desc").attr("x", d => projection([d.long, d.lat])[0] + (6 / event.transform.k))
-        annotationLayer.selectAll("text.snowline_desc").attr("y", d => projection([d.long, d.lat])[1] + (15 / event.transform.k))
-        annotationLayer.selectAll("text.snowline_desc").attr("opacity", d => opacity)
+        annotationLayer.selectAll("text.snowline_desc").attr("font-size", 6 / (event.transform.k));
+        annotationLayer.selectAll("text.snowline_desc").attr("x", d => projection([d.long, d.lat])[0] + (6 / event.transform.k));
+        annotationLayer.selectAll("text.snowline_desc").attr("y", d => projection([d.long, d.lat])[1] + (15 / event.transform.k));
+        annotationLayer.selectAll("text.snowline_desc").attr("opacity", d => opacity);
         
     }));
 
@@ -96,11 +110,11 @@ function D3Map() {
           }
         })
     
-      annotationLayer.selectAll("text.annotation")
+      annotationLayer.selectAll("text.title")
         .data(annotations)
         .enter()
         .append("text")
-        .attr("class", "annotation")
+        .attr("class", "title")
         .attr("x", d => projection([d.long, d.lat])[0] + 6)
         .attr("y", d => projection([d.long, d.lat])[1] - 3)
         .text(d => d.name)
@@ -116,6 +130,7 @@ function D3Map() {
             default: return "#FF4136";
           }
         })
+        .attr("opacity", 0);
       
       annotationLayer.selectAll("text.treeline_desc")
         .data(annotations.filter(d => d.treeline != null))
@@ -179,7 +194,7 @@ function App() {
       <br></br>
       <text style={{color: "#20A040"}}>4: Glaciers exist, are somewhat common, and have visible large crevaces, extending for greater than 500 feet and generally appearing quite consistent </text>
       <br></br>
-      <text style={{color: "#00DD50"}}>5: Glaciers are quite common and icefields exist in this range, surpassing all other categories </text>
+      <text style={{color: "#00DD50"}}>5: Glaciers are quite common and icefields / 'sufficiently' large glaciers exist in this range, surpassing all other categories </text>
       <D3Map></D3Map>
     </div>
   );
