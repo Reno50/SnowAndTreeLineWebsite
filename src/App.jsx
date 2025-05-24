@@ -25,6 +25,13 @@ import './App.css'
 
 const requestUrl = window.location.origin
 
+const zero_color = "#AA0000";  // Keep: strong red
+const one_color  = "#CC4400";  // Changed: clearer red-orange
+const two_color  = "#D98C00";  // Changed: warm amber
+const three_color = "#A5A530"; // Changed: soft yellow-green
+const four_color = "#20A040";  // Keep: clean green
+const five_color = "#00CC40";  // Keep: bright green
+
 function D3Map() {
   const svgRef = useRef();
 
@@ -46,11 +53,13 @@ function D3Map() {
 
     // Zoom stuff
     svg.call(d3.zoom()
-      .scaleExtent([1, 16])
+      .scaleExtent([1, 20])
       .on("zoom", (event) => {
         var opacity = Math.pow(event.transform.k, 3) / 4096;
         if (opacity < 0.125) {
           opacity = 0;
+        } else if (opacity > 1) {
+          opacity = 1;
         }
         var titleOpacity = Math.pow(event.transform.k, 3/2) / 16;
         if (titleOpacity < 0.2) {
@@ -100,13 +109,13 @@ function D3Map() {
         .attr("r", 3)
         .attr("fill", d => { // Oof, best way to do the color i guess
           switch (d.cover_quality) {
-            case 0: return "#AA0000";
-            case 1: return "#882200";
-            case 2: return "#665520";
-            case 3: return "#407530";
-            case 4: return "#20A040";
-            case 5: return "#00DD50";
-            default: return "#FF4136";
+            case 0: return zero_color;
+            case 1: return one_color;
+            case 2: return two_color;
+            case 3: return three_color;
+            case 4: return four_color;
+            case 5: return five_color;
+            default: return "#222222";
           }
         })
     
@@ -121,13 +130,13 @@ function D3Map() {
         .attr("font-size", 8)
         .attr("fill", d => {
           switch (d.cover_quality) {
-            case 0: return "#AA0000";
-            case 1: return "#882200";
-            case 2: return "#665520";
-            case 3: return "#407530";
-            case 4: return "#20A040";
-            case 5: return "#00DD50";
-            default: return "#FF4136";
+            case 0: return zero_color;
+            case 1: return one_color;
+            case 2: return two_color;
+            case 3: return three_color;
+            case 4: return four_color;
+            case 5: return five_color;
+            default: return "#222222";
           }
         })
         .attr("opacity", 0);
@@ -180,21 +189,27 @@ function App() {
     <div>
       <title>Snow and Tree-line website</title>
       <h1>A snow and tree-line visualization and inference website</h1>
-      <hr></hr>
+      <br></br>
       <p style={{ width: "90%", margin: "0 auto" }}>
         This first map is a visualization of the tree and snow lines of many mountain ranges in the present day. The tree and snow lines are listed, if they exist, and the color of the dot is representitave of the glacier cover in the range. For this, the key is:
       </p>
-      <text style={{color: "#AA0000"}}>0: No glaciers exist in this range</text>
       <br></br>
-      <text style={{color: "#882200"}}>1: Glaciers exist only in occasional cirques, extend for 500 feet or less, are visibly spotty or inconsistent, and do not contain crevaces of notable size </text>
+      <p style={{color: zero_color, width: "90%", margin: "0 auto"}}>0: No glaciers exist in this range</p>
+      
+      <p style={{color: one_color, width: "90%", margin: "0 auto"}}>1: Glaciers exist only in occasional cirques, extend for 500 feet or less, are visibly spotty or inconsistent, and do not contain crevaces of notable size </p>
+
+      <p style={{color: two_color, width: "90%", margin: "0 auto"}}>2: Glaciers only in occasional or uncommon cirques, but may extend longer than 500 feet, appear wider, appear more consistent, and may even have some small crevaces due to topography </p>
+
+      <p style={{color: three_color, width: "90%", margin: "0 auto"}}>3: Glaciers exist and are not necessarily confined to a small cirque or other topographic feature, likely longer than 500 feet but possibly just very wide, but are still uncommon and have relatively small crevaces </p>
+
+      <p style={{color: four_color, width: "90%", margin: "0 auto"}}>4: Glaciers exist, are somewhat common, and have visible large crevaces, extending for greater than 500 feet and generally appearing quite consistent </p>
+
+      <p style={{color: five_color, width: "90%", margin: "0 auto"}}>5: Glaciers are quite common and icefields / 'sufficiently' large glaciers exist in this range, surpassing all other categories </p>
+
       <br></br>
-      <text style={{color: "#665520"}}>2: Glaciers only in occasional or uncommon cirques, but may extend longer than 500 feet, appear wider, appear more consistent, and may even have some small crevaces due to topography </text>
-      <br></br>
-      <text style={{color: "#407530"}}>3: Glaciers exist and are not necessarily confined to a small cirque or other topographic feature, likely longer than 500 feet but possibly just very wide, but are still uncommon and have relatively small crevaces </text>
-      <br></br>
-      <text style={{color: "#20A040"}}>4: Glaciers exist, are somewhat common, and have visible large crevaces, extending for greater than 500 feet and generally appearing quite consistent </text>
-      <br></br>
-      <text style={{color: "#00DD50"}}>5: Glaciers are quite common and icefields / 'sufficiently' large glaciers exist in this range, surpassing all other categories </text>
+      <p style={{ width: "90%", margin: "0 auto" }}>
+        Zoom in on the map to view the names of each range, and zoom further to view the treeline and snowline elevations, if they exist for the range
+      </p>
       <D3Map></D3Map>
     </div>
   );
