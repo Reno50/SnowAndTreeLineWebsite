@@ -3,84 +3,182 @@
         "name": "Front Range", 
         "long": -105.66, "lat": 40.16, 
         "treeline": 11000, "snowline": 12000,
-        "cover_quality": 1
+        "cover_quality": 1,
+        "peak_elev": 14256
     },
     {
         "name": "San Juans",
         "long": -107.62, "lat": 37.85,
         "treeline": 11500, "snowline": null,
-        "cover_quality": 0
+        "cover_quality": 0,
+        "peak_elev": 14321
     },
     {
         "name": "High Uintas",
         "long": -110.5, "lat": 40.73,
         "treeline": 11000, "snowline": null,
-        "cover_quality": 0
+        "cover_quality": 0,
+        "peak_elev": 13528
     },
     {
         "name": "Wasatch Range",
         "long": -111.645, "lat": 40.39,
         "treeline": 10200, "snowline": null,
-        "cover_quality": 0
+        "cover_quality": 0,
+        "peak_elev": 11928
     },
     {
         "name": "Snake Range",
         "long": -114.31, "lat": 38.98,
         "treeline": 11000, "snowline": 11900,
-        "cover_quality": 1
+        "cover_quality": 1,
+        "peak_elev": 13063
     },
     {
         "name": "Sierra Nevada",
         "long": -118.51, "lat": 37.09,
         "treeline": 10500, "snowline": 12500,
-        "cover_quality": 2
+        "cover_quality": 2,
+        "peak_elev": 14505
     },
     {
         "name": "Mount Lassen",
         "long": -121.51, "lat": 40.49,
         "treeline": 9600, "snowline": null,
-        "cover_quality": 0
+        "cover_quality": 0,
+        "peak_elev": 10457
     },
     {
         "name": "Mount Shasta",
         "long": -122.19, "lat": 41.41,
         "treeline": 8300, "snowline": 11600,
-        "cover_quality": 4
+        "cover_quality": 4,
+        "peak_elev": 14179
     },
     {
         "name": "Three Sisters",
         "long": -121.78, "lat": 44.15,
         "treeline": 7400, "snowline": 8900,
-        "cover_quality": 4
+        "cover_quality": 4,
+        "peak_elev": 10363
     },
     {
         "name": "Mount Hood",
         "long": -121.71, "lat": 45.37,
         "treeline": 6100, "snowline": 8700,
-        "cover_quality": 4
+        "cover_quality": 4,
+        "peak_elev": 11249
     },
     {
         "name": "Mount Rainier",
         "long": -121.76, "lat": 46.85,
         "treeline": 6300, "snowline": 8000,
-        "cover_quality": 5
+        "cover_quality": 5,
+        "peak_elev": 14410
     },
     {
         "name": "Olympic Mountains",
         "long": -123.7, "lat": 47.79,
         "treeline": 4800, "snowline": 5400,
-        "cover_quality": 4
+        "cover_quality": 4,
+        "peak_elev": 7980
     },
     {
         "name": "Teton Range",
         "long": -110.8, "lat": 43.74,
         "treeline": 9800, "snowline": 11100,
-        "cover_quality": 3
+        "cover_quality": 3,
+        "peak_elev": 13775
     },
     {
         "name": "Glacier National Park Ranges",
         "long": -113.78, "lat": 48.83,
         "treeline": 6500, "snowline": 7500,
-        "cover_quality": 4
+        "cover_quality": 4,
+        "peak_elev": 10479
+    },
+    {
+        "name": "Purcell Range",
+        "long": -116.89, "lat": 50.77,
+        "treeline": 7400, "snowline": 7800,
+        "cover_quality": 5,
+        "peak_elev": 11460
+    },
+    {
+        "name": "Coast Range",
+        "long": -124.55, "lat": 51.09,
+        "treeline": 5700, "snowline": 6500,
+        "cover_quality": 5,
+        "peak_elev": 13186
+    },
+    {
+        "name": "Saint Elias Range",
+        "long": -140.42, "lat": 60.56,
+        "treeline": 3000, "snowline": 4700,
+        "cover_quality": 5,
+        "peak_elev": 19551
+    },
+    {
+        "name": "Kamchatka Eastern Range",
+        "long": 160.41, "lat": 56.06,
+        "treeline": 3500, "snowline": 9300,
+        "cover_quality": 5,
+        "peak_elev": 9910
+    }, 
+    {
+        "name": "Mackenzie Mountains",
+        "long": -130.325, "lat": 63.43,
+        "treeline": 4400, "snowline": 6500,
+        "cover_quality": 4,
+        "peak_elev": 9685
+    },
+    {
+        "name": "Baffin Island Range",
+        "long": -73.75, "lat": 70.35,
+        "treeline": 0, "snowline": 2100,
+        "cover_quality": 5,
+        "peak_elev": 7044
+    },
+    {
+        "name": "Northern Appalachians",
+        "long": -71.302, "lat": 44.27,
+        "treeline": 4300, "snowline": null,
+        "cover_quality": 0,
+        "peak_elev": 6276
+    },
+    {
+        "name": "Southern Appalachians",
+        "long": -83.44, "lat": 35.65,
+        "treeline": null, "snowline": null,
+        "cover_quality": 0,
+        "peak_elev": 6683
+    },
+    {
+        "name": "Southwest Greenland",
+        "long": -52.1, "lat": 65.43,
+        "treeline": 0, "snowline": 2500,
+        "cover_quality": 5,
+        "peak_elev": 7301
+    },
+    {
+        "name": "Iztaccihuathl",
+        "long": -98.64, "lat": 19.17,
+        "treeline": 13200, "snowline": 17000,
+        "cover_quality": 2,
+        "peak_elev": 17160
+    },
+    {
+        "name": "Cordillera de Talamanca",
+        "long": -83.48, "lat": 9.49,
+        "treeline": 11500, "snowline": null,
+        "cover_quality": 0,
+        "peak_elev": 12536
+    },
+    {
+        "name": "Central Columbian Andes",
+        "long": -75.31, "lat": 4.89,
+        "treeline": 12500, "snowline": 16800,
+        "cover_quality": 4,
+        "peak_elev": 17457
     }
 ]
