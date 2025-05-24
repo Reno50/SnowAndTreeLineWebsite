@@ -180,5 +180,47 @@
         "treeline": 12500, "snowline": 16800,
         "cover_quality": 4,
         "peak_elev": 17457
+    },
+    {
+        "name": "Northern Columbian Andes",
+        "long": -72.29, "lat": 6.44,
+        "treeline": 11200, "snowline": 16000,
+        "cover_quality": 4,
+        "peak_elev": 17750
+    },
+    {
+        "name": "Cayambe",
+        "long": -77.985, "lat": 0.025,
+        "treeline": 12800, "snowline": 16500,
+        "cover_quality": 5,
+        "peak_elev": 18933
+    },
+    {
+        "name": "Central Peruvian Andes",
+        "long": -77.6, "lat": -9.12,
+        "treeline": 13200, "snowline": 17100,
+        "cover_quality": 5,
+        "peak_elev": 2205
+    },
+    {
+        "name": "Guiana Highlands",
+        "long": -62.19, "lat": 5.43,
+        "treeline": null, "snowline": null,
+        "cover_quality": 0,
+        "peak_elev": 8303
+    },
+    {
+        "name": "Coropuna",
+        "long": -72.66, "lat": -15.54,
+        "treeline": 11700, "snowline": 19200,
+        "cover_quality": 5,
+        "peak_elev": 20922
+    },
+    {
+        "name": "Vilcabamba Range",
+        "long": -72.54, "lat": -13.33,
+        "treeline": 12200, "snowline": 16200,
+        "cover_quality": 4,
+        "peak_elev": 20574
     }
 ]
