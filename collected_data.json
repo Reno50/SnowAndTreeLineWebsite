@@ -222,5 +222,54 @@
         "treeline": 12200, "snowline": 16200,
         "cover_quality": 4,
         "peak_elev": 20574
+    },
+    {
+        "name": "Cordillera Real",
+        "long": -67.78, "lat": -16.65,
+        "treeline": 11600, "snowline": 17100,
+        "cover_quality": 4,
+        "peak_elev": 21122
+    },
+    {
+        "name": "Northern Argentinian Andes",
+        "long": -65.74, "lat": -24.06,
+        "treeline": 9800, "snowline": null,
+        "cover_quality": 0,
+        "peak_elev": 19330
+    },
+    {
+        "name": "Aconcagua",
+        "long": -70.01, "lat": 32.65,
+        "treeline": 5200, "snowline": 14500,
+        "cover_quality": 4,
+        "peak_elev": 22707
+    },
+    {
+        "name": "Nevados de Chillán",
+        "long": -71.41, "lat": -36.83,
+        "treeline": 6300, "snowline": 9500,
+        "cover_quality": 2,
+        "peak_elev": 10538
+    },
+    {
+        "name": "Sollipulli",
+        "long": -71.52, "lat": -38.99,
+        "treeline": 5500, "snowline": 6800,
+        "cover_quality": 4,
+        "peak_elev": 7487
+    },
+    {
+        "name": "Tronador",
+        "long": -71.89, "lat": -41.16,
+        "treeline": 4900, "snowline": 6300,
+        "cover_quality": 5,
+        "peak_elev": 11453
+    },
+    {
+        "name": "Melimoyu",
+        "long": -72.86, "lat": 44.08,
+        "treeline": 3900, "snowline": 4600,
+        "cover_quality": 5,
+        "peak_elev": 7900
     }
 ]
